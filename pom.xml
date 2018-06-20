@@ -2,11 +2,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.csair.ndc</groupId>
-	<artifactId>ndc-core</artifactId>
+	<groupId>com.test</groupId>
+	<artifactId>spring-demo</artifactId>
 	<version>17.2</version>
 	<packaging>war</packaging>
-	<name>ndc-core</name>
+	<name>spring-demo</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -158,16 +158,12 @@
 			<artifactId>httpclient</artifactId>
 			<version>4.5</version>
 		</dependency>
-		<dependency>
-			<groupId>com.csair.ecs</groupId>
-			<artifactId>emp-app-dubbo</artifactId>
-			<version>8.0.0</version>
-		</dependency>
+	
 
 	</dependencies>
 
 	<build>
-		<finalName>ndc172</finalName>
+		<finalName>spring-demo</finalName>
 		<pluginManagement>
 			<plugins>
 				<plugin>
