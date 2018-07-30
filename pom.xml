@@ -158,7 +158,37 @@
 			<artifactId>httpclient</artifactId>
 			<version>4.5</version>
 		</dependency>
-	
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.18</version>
+		</dependency>
+		<dependency>
+			<groupId>com.csair.veda</groupId>
+			<artifactId>veda-api</artifactId>
+			<version>0.7.33</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>21.0</version>
+		</dependency>
+		<dependency>
+            <groupId>com.csair.horo</groupId>
+            <artifactId>horo-api</artifactId>
+            <version>0.7.383</version>
+        </dependency>
+
+		<dependency>
+			<groupId>com.csair.ecs</groupId>
+			<artifactId>ecs-ws</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 
 	</dependencies>
 
@@ -214,10 +244,41 @@
 			</snapshots>
 		</repository>
 		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>http://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
 			<id>emp</id>
 			<name>emp</name>
 			<url>http://10.79.0.48:8888/nexus/content/groups/emp/  </url>
 		</repository>
 
-	</repositories>
+	<profiles>
+		<profile>
+			<id>test</id>
+			<properties>
+				<projectEnvironment>test</projectEnvironment>
+			</properties>
+			<build>
+				<resources>
+					<resource>
+						<directory>${basedir}/src/main/resources</directory>
+						<excludes>
+							<exclude>/log4j2.xml</exclude>
+						</excludes>
+						<filtering>true</filtering>
+					</resource>
+					<resource>
+						<directory>${basedir}/environment/${projectEnvironment}</directory>
+						<targetPath>${project.build.outputDirectory}</targetPath>
+						<filtering>true</filtering>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+	</profiles>
 </project>
